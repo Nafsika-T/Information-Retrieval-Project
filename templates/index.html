@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Parliament Speeches</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Greek Parliament Speeches Search</h1>
+        <div class="search-container d-flex justify-content-center mt-4">
+            <div class="search-bar">
+                <input type="text" id="searchQuery" class="form-control" placeholder="Enter search term...">
+                <button onclick="searchSpeeches()" class="btn btn-primary ml-2">Search</button>
+            </div>
+            <div class="buttons ml-5">
+                <button onclick="location.href='/extract_keywords'" class="btn btn-secondary btn-block">Extract Keywords</button>
+                <button onclick="location.href='/top_k_similarities'" class="btn btn-secondary btn-block mt-2">Top-K Similarities</button>
+                <button onclick="location.href='/extract_topics'" class="btn btn-secondary btn-block mt-2">Extract Topics</button>
+                <button onclick="location.href='/entity_recognition'" class="btn btn-secondary btn-block mt-2">Entity Recognition</button>
+            </div>
+        </div>
+        <div id="results" class="mt-4"></div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>

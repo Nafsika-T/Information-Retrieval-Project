@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    min-height: 600px;
+    position: relative; /* Προστέθηκε για να γίνει η θέση του κουμπιού σχετική με την .container */
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative; 
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.search-bar input[type="text"], 
+.search-bar input[type="number"] {
+    width: 600px; 
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    margin-right: 20px; 
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: 200px; 
+}
+
+img.keyword-image {
+    max-width: 800px; 
+    height: auto; 
+    margin-bottom: 20px; 
+}
+
+.text-right .btn-secondary {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+
+.form-inline .form-group {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.form-inline .btn-primary, .form-inline .btn-secondary {
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.member-form .form-control {
+    width: 300px; 
+}
+
+
+#suggestions {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+#suggestions li {
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+}
+

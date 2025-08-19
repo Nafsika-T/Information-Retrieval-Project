@@ -1,0 +1,24 @@
+.return-home {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#results h2 {
+    margin-top: 20px;
+}
+#results ul {
+    list-style-type: none;
+    padding: 0;
+}
+#results li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.similarity-value {
+    font-weight: bold;
+    color: #007bff;
+}

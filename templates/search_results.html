@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Search Results</title>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="font-size: 1.5rem; font-weight: bold;">Search Results for "{{ query }}"</h2>
+
+    {% if error_message %}
+        <div class="alert alert-danger">{{ error_message }}</div>
+    {% endif %}
+
+    <div id="search-results">
+        {% for result in results %}
+            <div class="search-result">
+                <h5>
+                    <a href="/speech/{{ result.id }}">
+                        {{ result.member_name }} - {{ result.political_party }} (Speech ID: {{ result.id }})
+                    </a>
+                </h5>
+                <p>Date: {{ result.sitting_date }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Links -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if page > 1 %}
+                <li class="page-item">
+                    <button class="page-link" onclick="loadPage('{{ page - 1 }}')" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+            {% endif %}
+    
+
+            {% for p in range(1, total_pages + 1) %}
+                <li class="page-item {% if p == page %}active{% endif %}">
+                    <button class="page-link" onclick="loadPage('{{ p }}')">{{ p }}</button>
+                </li>
+            {% endfor %}
+
+    
+            {% if page < total_pages %}
+                <li class="page-item">
+                    <button class="page-link" onclick="loadPage('{{ page + 1 }}')" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </button>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+</div>
+
+<script>
+    function loadPage(page) {
+    var query = "{{ query }}";
+    $.ajax({
+        url: "/search_speeches",
+        type: "GET",
+        data: {
+            query: query,
+            page: page
+        },
+        success: function (response) {
+            $("#search-results").html($(response).find("#search-results").html());
+            
+            $('.pagination').html($(response).find('.pagination').html());
+        },
+        error: function (xhr, status, error) {
+            console.log("Error: " + error);
+        }
+    });
+}
+
+</script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

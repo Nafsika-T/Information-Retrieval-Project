@@ -1,0 +1,46 @@
+.total-evc-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.total-evc-card {
+    padding: 10px 20px; 
+    border: 2px solid #007bff;
+    border-radius: 0.25rem;
+    background-color: #e9f7ff; 
+    text-align: center;
+    font-size: 18px;
+    color: #007bff; 
+    font-weight: bold;
+    max-width: 200px;
+    display: inline-block;
+}
+
+.topic-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f8f9fa;
+    font-size: 14px;
+    min-height: 250px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topic-card h3 {
+    margin-bottom: 15px;
+    color: red;
+    font-size: 20px;
+}
+.topic-card p {
+    margin-bottom: 0;
+}
+.evc {
+    color: blue;
+    font-weight: bold;
+    font-size: 14px;
+}

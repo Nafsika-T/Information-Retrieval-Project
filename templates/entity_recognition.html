@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Recognition</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="btn btn-secondary position-absolute" style="top: 20px; right: 20px;">Return to Home</a>
+
+        <h1 class="text-center mt-5">Entity Recognition</h1>
+        
+        <div class="form-group">
+            <label for="memberInput">Enter Member:</label>
+            <input type="text" id="memberInput" class="form-control" placeholder="Type to search..." autocomplete="off">
+        </div>
+        
+        <button onclick="entity_recognition()" class="btn btn-primary mt-2">Entity Recognition</button>
+
+        <div id="results" class="mt-4 text-center"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='entity_recognition.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 0.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ml-3 {
+    margin-left: 1rem;
+}
+
+.carousel-item img {
+    width: 90%;
+    height: 700px;
+    margin: 0 auto; 
+    object-fit: cover;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+a.carousel-control-prev,
+a.carousel-control-next {
+    font-family: Arial, sans-serif;
+}
+
+.carousel {
+    width: 100%;
+    height: 800px;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}

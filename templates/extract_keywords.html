@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Keywords</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='extract_keywords.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="text-right">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Return to Home</a>
+        </div>
+        <h1 class="text-center">Extract Keywords</h1>
+        <form id="keywordForm" method="POST">
+            <div class="form-group mt-4">
+                <label for="keywordType">Extract Keywords by:</label>
+                <select id="keywordType" name="keywordType" class="form-control">
+                    <option value="member">Member</option>
+                    <option value="party">Party</option>
+                </select>
+                <input type="text" id="entity" name="entity" class="form-control mt-3" placeholder="Enter entity..." autocomplete="off">
+                <ul id="suggestions" class="list-group"></ul>
+                <div class="d-flex align-items-center mt-3">
+                    <button type="submit" class="btn btn-primary">Extract Keywords</button>
+                    <div id="loadingSpinner" class="spinner-border text-primary ml-3" role="status" style="display: none;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+        
+        <div id="keywordsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for image_path, year, prev_year, next_year in image_data %}
+                <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                    <img src="{{ url_for('serve_image', filename=image_path) }}" class="d-block w-50 mx-auto" alt="Keywords Image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ year }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        
+            {% if image_data|length > 1 %}
+
+            <a class="carousel-control-prev" href="#keywordsCarousel" role="button" data-slide="prev" style="font-size: 2em; color: black;">
+                <span class="position-absolute bg-dark text-white p-2" style="left: 15px; bottom: 15px;">
+                    {{ prev_year }}
+                </span>
+                &#9664; 
+            </a>
+        
+            <a class="carousel-control-next" href="#keywordsCarousel" role="button" data-slide="next" style="font-size: 2em; color: black;">
+                <span class="position-absolute bg-dark text-white p-2" style="right: 15px; bottom: 15px;">
+                    {{ next_year }}
+                </span>
+                &#9654; 
+            </a>
+            {% endif %}
+        </div>
+         
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='extract_keywords.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
